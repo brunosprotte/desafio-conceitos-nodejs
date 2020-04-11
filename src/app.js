@@ -14,7 +14,7 @@ function validadeRepoId(request, response, next) {
   const { id } = request.params;
 
   if (!isUuid(id)) {
-    return response.status(400).json({ error: 'Invalid rerpository ID.' })
+    return response.status(400).json({ error: 'Invalid repository ID.' })
   }
   return next();
 }
@@ -45,7 +45,7 @@ app.put("/repositories/:id", (request, response) => {
   const repoIndex = repositories.findIndex(repo => repo.id === id);
 
   if (repoIndex < 0) {
-    return response.status(400).json({ error: 'Repo not found' });
+    return response.status(400).json({ error: 'Repository not found' });
   }
 
   const originalRepo = repositories[repoIndex];
